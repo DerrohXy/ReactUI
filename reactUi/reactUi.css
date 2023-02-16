@@ -1,0 +1,828 @@
+@keyframes react-ui-pulsating {
+    from {
+        transform: scale(1.05);
+    }
+    to {
+        transform: scale(0.95);
+    }
+}
+
+@keyframes react-ui-spinning {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes react-ui-slide-in-left {
+    from {
+        margin-right: 100%;
+    }
+    to {
+        margin-right: 0%;
+    }
+}
+
+@keyframes react-ui-slide-out-left {
+    from {
+        margin-right: 0%;
+    }
+    to {
+        margin-right: 1000%;
+    }
+}
+
+@keyframes react-ui-slide-in-right {
+    from {
+        margin-left: 100%;
+    }
+    to {
+        margin-left: 0%;
+    }
+}
+
+@keyframes react-ui-slide-out-right {
+    from {
+        margin-left: 0%;
+    }
+    to {
+        margin-left: 100%;
+    }
+}
+
+@keyframes react-ui-slide-in-top {
+    from {
+        margin-bottom: 100%;
+    }
+    to {
+        margin-bottom: 0%;
+    }
+}
+
+@keyframes react-ui-slide-out-top {
+    from {
+        margin-bottom: 0%;
+    }
+    to {
+        margin-bottom: 100%;
+    }
+}
+
+@keyframes react-ui-slide-in-bottom {
+    from {
+        margin-top: 100%;
+    }
+    to {
+        margin-top: 0%;
+    }
+}
+
+@keyframes react-ui-slide-out-bottom {
+    from {
+        margin-top: 0%;
+    }
+    to {
+        margin-top: 100%;
+    }
+}
+
+.-react-ui-pulsating- {
+    animation: react-ui-pulsating 1s linear 0s infinite alternate;
+}
+
+.-react-ui-spinning- {
+    animation: react-ui-spinning 1s linear 0s infinite alternate;
+}
+
+.-react-ui-slide-in-left- {
+    animation: react-ui-slide-in-left 1s linear 0s 1 forwards;
+}
+
+.-react-ui-slide-out-left- {
+    animation: react-ui-slide-out-left 1s linear 0s 1 forwards;
+}
+
+.-react-ui-slide-in-right- {
+    animation: react-ui-slide-in-right 1s linear 0s 1 forwards;
+}
+
+.-react-ui-slide-out-right- {
+    animation: react-ui-slide-out-right 1s linear 0s 1 forwards;
+}
+
+.-react-ui-slide-in-top- {
+    animation: react-ui-slide-in-top 1s linear 0s 1 forwards;
+}
+
+.-react-ui-slide-out-top- {
+    animation: react-ui-slide-out-top 1s linear 0s 1 forwards;
+}
+
+.-react-ui-slide-in-bottom- {
+    animation: react-ui-slide-in-bottom 1s linear 0s 1 forwards;
+}
+
+.-react-ui-slide-out-bottom- {
+    animation: react-ui-slide-out-bottom 1s linear 0s 1 forwards;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-size: 12px;
+    font-style: oblique;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: darkslategray;
+}
+
+input,
+select,
+option,
+textarea {
+    color: inherit;
+    font: inherit;
+}
+
+.-react-ui-hidden- {
+    display: none;
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+}
+
+.-react-ui-button- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-radius: 5px;
+    padding: 7px;
+    margin: 1px;
+    border: 1px solid lightgray;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.-react-ui-label- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: fit-content;
+    height: fit-content;
+    text-overflow: clip;
+    align-items: center;
+    white-space: nowrap;
+    justify-content: center;
+}
+
+.-react-ui-paragraph- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: fit-content;
+    height: fit-content;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.-react-ui-link- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: fit-content;
+    height: fit-content;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.-react-ui-image-view- {
+    width: fit-content;
+    height: fit-content;
+    margin: 1px;
+}
+
+.-react-ui-text-input-,
+.-react-ui-number-input-,
+.-react-ui-week-input-,
+.-react-ui-time-input-,
+.-react-ui-month-input-,
+.-react-ui-datetime-input-,
+.-react-ui-date-input-,
+.-react-ui-date-time-input-,
+.-react-ui-text-area-,
+.-react-ui-password-input-,
+.-react-ui-color-input- {
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 5px !important;
+    background-color: transparent !important;
+    padding: 10px !important;
+    border: 1px solid lightgray !important;
+    margin: 1px;
+}
+
+.-react-ui-week-input-:focus,
+.-react-ui-text-input-:focus,
+.-react-ui-number-input-:focus,
+.-react-ui-password-input-:focus,
+.-react-ui-time-input-:focus,
+.-react-ui-month-input-:focus,
+.-react-ui-date-time-input-:focus,
+.-react-ui-datetime-input-:focus,
+.-react-ui-date-input-:focus,
+.-react-ui-text-area-:focus{
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 5px !important;
+    background-color: transparent !important;
+    padding: 10px !important;
+    border: 1px solid lightgray !important;
+    margin: 1px;
+}
+
+.-react-ui-color-input-,
+.-react-ui-color-input-:focus{
+    padding: 1px !important;
+}
+
+.-react-ui-file-input-,
+.-react-ui-file-input-:focus,
+.-react-ui-selection-view-,
+.-react-ui-selection-view-:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 5px !important;
+    background-color: transparent !important;
+    border: 1px solid lightgray !important;
+    width: fit-content;
+    height: fit-content;
+    padding: 7px !important;
+    margin: 1px;
+}
+
+.-react-ui-progress-bar- {
+    min-width: 100px;
+    margin: 1px;
+}
+
+.-react-ui-slider- {
+    min-width: 100px;
+    margin: 1px;
+}
+
+.-react-ui-progress-indicator- {
+    border-radius: 100%;
+    border: 1px solid lightgray;
+    border-top: 1px solid green;
+    width: 20px;
+    height: 20px;
+    margin: 1px;
+    animation-name: react-ui-spinning;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.-react-ui-option-item- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+}
+
+.-react-ui-check-button- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-radius: 5px;
+    padding: 7px;
+    margin: 1px;
+    border: 1px solid lightgray;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+}
+
+.-react-ui-check-button-check-box- {
+    margin-right: 5px;
+}
+
+.-react-ui-radio-button- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-radius: 5px;
+    padding: 7px;
+    margin: 1px;
+    border: 1px solid lightgray;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+}
+
+.-react-ui-radio-button-check-box- {
+    margin-right: 5px;
+}
+
+.-react-ui-radio-group- {
+    display: flex;
+    flex-direction: column;
+}
+
+.-react-ui-switch- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border: 1px solid lightslategray;
+    background-color: lightgray;
+    min-width: 40px;
+    min-height: 20px;
+    border-radius: 10px;
+    margin: 1px;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+.-react-ui-switch-active- {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    border: 1px solid lightslategray;
+    background-color: lightgray;
+    min-width: 40px;
+    min-height: 20px;
+    border-radius: 10px;
+    margin: 1px;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+.-react-ui-switch-filler- {
+    min-width: 20px;
+    min-height: 20px;
+    background-color: transparent;
+}
+
+.-react-ui-switch-toggle-active- {
+    border-radius: 100%;
+    background-color: darkgreen;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.-react-ui-switch-toggle-inactive- {
+    border-radius: 100%;
+    background-color: darkslategray;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.-react-ui-dialog- {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    min-height: fit-content;
+    border-radius: 5px;
+}
+
+.-react-ui-dialog-window- {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-color: rgba(25, 25, 25, 0.5);
+}
+
+.-react-ui-dialog-title-bar- {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+    min-height: 35px;
+}
+
+.-react-ui-menu- {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 5px;
+    border-bottom: 2px solid transparent;
+    width: fit-content;
+    height: fit-content;
+}
+
+.-react-ui-menu-active-,
+.-react-ui-menu-:hover {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 5px;
+    border-bottom: 2px solid gray;
+    width: fit-content;
+    height: fit-content;
+}
+
+.-react-ui-menu-dropdown- {
+    position: absolute;
+    top: 100%;
+    left: -5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border-radius: 5px;
+    margin: 5px;
+    min-width: 150px;
+    border: 1px solid lightgray;
+    background-color: white;
+}
+
+.-react-ui-menu-item- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+}
+
+.-react-ui-menu-bar- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid lightgray;
+    align-items: center;
+}
+
+.-react-ui-tabbed-window- {
+    display: flex;
+    flex-direction: column;
+}
+
+.-react-ui-tabbed-view- {
+    display: flex;
+    flex-direction: column;
+}
+
+.-react-ui-tabbed-window-tabs-bar- {
+    display: flex;
+    flex-direction: column;
+}
+
+.-react-ui-tabbed-window-tab-container- {
+    display: flex;
+    flex-direction: column;
+}
+
+.-react-ui-tabbed-window-title-bar- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid lightgray;
+    font-weight: bold;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.-react-ui-tabbed-window-content-area- {
+    display: flex;
+    flex-direction: row;
+}
+
+.-react-ui-tabbed-view-content-area- {
+    display: flex;
+    flex-direction: row;
+}
+
+.-react-ui-tabbed-view-header- {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.-react-ui-tabbed-view-title-bar- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border: 1px solid lightgray;
+    font-weight: bold;
+    align-items: center;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.-react-ui-tabbed-window-title-bar-centered- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid lightgray;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.-react-ui-tabbed-window-title-bar-spaced- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid lightgray;
+    font-weight: bold;
+    align-items: center;
+    justify-content: space-around;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.-react-ui-tabbed-window-title-bar-right- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid lightgray;
+    font-weight: bold;
+    align-items: center;
+    justify-content: end;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.-react-ui-tab-active-,
+.-react-ui-tab-inactive-:hover {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 5px;
+    border-bottom: 3px solid darkslategray;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 50px;
+}
+
+.-react-ui-tab-inactive- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 5px;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 3px solid transparent;
+    min-width: 50px;
+}
+
+.-react-ui-context-menu- {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    min-height: 100px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.-react-ui-context-menu-title-bar- {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+}
+
+.-react-ui-tooltip- {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+.-react-ui-collapse-view- {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid lightgray;
+}
+
+.-react-ui-collapse-view-title-bar- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.-react-ui-collapse-view-dropdown- {
+    display: flex;
+    flex-direction: column;
+}
+
+.-react-ui-toast- {
+    position: fixed;
+    padding: 7px;
+    left: 50px;
+    right: 50px;
+    bottom: 50px;
+    border-radius: 5px;
+    background-color: darkslategray;
+    color: white;
+}
+
+.-react-ui-ordered-list-{
+    padding-left:15px;
+}
+
+.-react-ui-unordered-list-{
+    padding-left:15px;
+}
+
+.-react-ui-list-item-{
+    padding:2px;
+}
+
+.-react-ui-table-{
+    border-top: 1px solid lightgray;
+}
+
+.-react-ui-table-heading-{
+    padding: 1px;
+}
+
+.-react-ui-table-footer-{
+    padding: 1px;
+}
+
+.-react-ui-table-row-{
+    padding:1px
+}
+
+.-react-ui-table-data-{
+    padding:1px
+}
+
+.-react-ui-table-header-{
+    padding:1px
+}
+
+.-react-ui-caption-{
+    padding:1px;
+    margin:1px;
+}
+
+.-react-ui-embed-{
+    padding:1px;
+    margin:1px;
+}
+
+.-react-ui-iframe-{
+    padding:1px;
+    margin:1px;
+}
+
+.-react-ui-layout- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.-react-ui-vertical-layout- {
+    display: flex;
+    flex-direction: column;
+}
+
+.-react-ui-horizontal-layout- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.-react-ui-flow-layout- {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.-react-ui-grid-layout- {
+    display: grid;
+}
+
+.-react-ui-relative-layout- {
+    position: relative;
+}
+
+.-react-ui-scroll-window- {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+.-react-ui-scroll-window-vertical- {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.-react-ui-scroll-window-horizontal- {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.-react-ui-navigation-bar- {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50px !important;
+}
+
+.-react-ui-navigation-bar-navigation-drawer- {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(25,25,25,0.5);
+}
+
+.-react-ui-navigation-bar-navigation-drawer-content- {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    min-width: 250px;
+}
+
+.-react-ui-navigation-bar-navigation-menu- {
+    position: fixed;
+    display: flex;
+    flex-direction: row-reverse;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(25,25,25,0.5);
+}
+
+.-react-ui-navigation-bar-navigation-menu-content- {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    min-width: 250px;
+}
+
+.-react-ui-footer-bar- {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50px !important;
+}
+
+.-react-ui-activity- {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
