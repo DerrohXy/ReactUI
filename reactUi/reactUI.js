@@ -1821,7 +1821,7 @@ function _initialize_() {
     });
 }
 
-const ReactUi = {
+const ReactUI = {
     Initialize: _initialize_,
     DisableAnimations:_disable_animations_,
     EnableAnimations:_enable_animations_,
