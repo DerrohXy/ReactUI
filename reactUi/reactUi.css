@@ -428,8 +428,7 @@ textarea {
     height: fit-content;
 }
 
-.-react-ui-menu-active-,
-.-react-ui-menu-:hover {
+.-react-ui-menu-active- {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -567,8 +566,7 @@ textarea {
     overflow-x: auto;
 }
 
-.-react-ui-tab-active-,
-.-react-ui-tab-inactive-:hover {
+.-react-ui-tab-active- {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;

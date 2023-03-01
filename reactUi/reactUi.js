@@ -1,4 +1,4 @@
-const _evs_ = {
+const _events_ = {
     ABORT: "",
     ANIMATION_CANCEL: "",
     ANIMATION_END: "",
@@ -90,7 +90,7 @@ const _evs_ = {
     WEBKIT_TRANSITION_END: "",
     WHEEL: ""
 },
-    _icn_stl_ = {
+    _icon_styles_ = {
         S: {
             margin: "5px",
             width: "20px",
@@ -122,8 +122,8 @@ const _evs_ = {
             height: "100px"
         }
     },
-    _img_stl_ = _icn_stl_,
-    _btn_stl_ = {
+    _image_styles_ = _icon_styles_,
+    _button_styles_ = {
         S: {
             margin: "5px",
             padding: "3px"
@@ -146,7 +146,7 @@ const _evs_ = {
             minHeight: "40px"
         }
     },
-    _cst_cls_ = {
+    _custom_colors_ = {
         BLUE1: "#99C1F1",
         BLUE2: "#62A0EA",
         BLUE3: "#3584E4",
@@ -213,7 +213,7 @@ const _evs_ = {
         CLASSIC_PINK: "#FBEAEB",
         CLASSIC_YELLOW: "#FEE715FF ",
         CHARCOAL: "#101820FF",
-        LIME_GREEM: "#CCF381",
+        LIME_GREEN: "#CCF381",
         ELECTRIC_BLUE: "#4831D4",
         LAVENDER: "#E2D1F9",
         TEAL: "#317773",
@@ -234,6 +234,111 @@ const _evs_ = {
         RASPBERRY: "#8A307F",
     };
 
+const CLS={
+    REACT_UI_PULSATING:"",
+    REACT_UI_SPINNING:"",
+    REACT_UI_SLIDE_IN_LEFT:"",
+    REACT_UI_SLIDE_OUT_LEFT:"",
+    REACT_UI_SLIDE_IN_RIGHT:"",
+    REACT_UI_SLIDE_OUT_RIGHT:"",
+    REACT_UI_SLIDE_IN_TOP:"",
+    REACT_UI_SLIDE_OUT_TOP:"",
+    REACT_UI_SLIDE_IN_BOTTOM:"",
+    REACT_UI_SLIDE_OUT_BOTTOM:"",
+    REACT_UI_HIDDEN:"",
+    REACT_UI_BUTTON:"",
+    REACT_UI_LABEL:"",
+    REACT_UI_PARAGRAPH:"",
+    REACT_UI_ICON:"",
+    REACT_UI_HEADING:"",
+    REACT_UI_LINK:"",
+    REACT_UI_IMAGE_VIEW:"",
+    REACT_UI_VIDEO_VIEW:"",
+    REACT_UI_AUDIO_VIEW:"",
+    REACT_UI_TEXT_INPUT:"",
+    REACT_UI_NUMBER_INPUT:"",
+    REACT_UI_WEEK_INPUT:"",
+    REACT_UI_TIME_INPUT:"",
+    REACT_UI_MONTH_INPUT:"",
+    REACT_UI_DATETIME_INPUT:"",
+    REACT_UI_DATE_INPUT:"",
+    REACT_UI_DATE_TIME_INPUT:"",
+    REACT_UI_TEXT_AREA:"",
+    REACT_UI_PASSWORD_INPUT:"",
+    REACT_UI_COLOR_INPUT:"",
+    REACT_UI_FILE_INPUT:"",
+    REACT_UI_SELECTION_VIEW:"",
+    REACT_UI_PROGRESS_BAR:"",
+    REACT_UI_SLIDER:"",
+    REACT_UI_PROGRESS_INDICATOR:"",
+    REACT_UI_OPTION_ITEM:"",
+    REACT_UI_CHECK_BUTTON:"",
+    REACT_UI_CHECK_BUTTON_CHECK_BOX:"",
+    REACT_UI_RADIO_BUTTON:"",
+    REACT_UI_RADIO_BUTTON_CHECK_BOX:"",
+    REACT_UI_SWITCH:"",
+    REACT_UI_SWITCH_ACTIVE:"",
+    REACT_UI_SWITCH_FILLER:"",
+    REACT_UI_SWITCH_TOGGLE_ACTIVE:"",
+    REACT_UI_SWITCH_TOGGLE_INACTIVE:"",
+    REACT_UI_DIALOG:"",
+    REACT_UI_DIALOG_WINDOW:"",
+    REACT_UI_MENU:"",
+    REACT_UI_MENU_ACTIVE:"",
+    REACT_UI_MENU_DROPDOWN:"",
+    REACT_UI_MENU_ITEM:"",
+    REACT_UI_MENU_BAR:"",
+    REACT_UI_TABBED_WINDOW:"",
+    REACT_UI_TABBED_VIEW:"",
+    REACT_UI_TABBED_WINDOW_TABS_BAR:"",
+    REACT_UI_TABBED_WINDOW_TAB_CONTAINER:"",
+    REACT_UI_TABBED_WINDOW_TITLE_BAR:"",
+    REACT_UI_TABBED_WINDOW_CONTENT_AREA:"",
+    REACT_UI_TABBED_VIEW_CONTENT_AREA:"",
+    REACT_UI_TABBED_VIEW_HEADER:"",
+    REACT_UI_TABBED_VIEW_TITLE_BAR:"",
+    REACT_UI_TABBED_WINDOW_TITLE_BAR_CENTERED:"",
+    REACT_UI_TABBED_WINDOW_TITLE_BAR_SPACED:"",
+    REACT_UI_TABBED_WINDOW_TITLE_BAR_RIGHT:"",
+    REACT_UI_TAB_ACTIVE:"",
+    REACT_UI_TAB_INACTIVE:"",
+    REACT_UI_CONTEXT_MENU:"",
+    REACT_UI_CONTEXT_MENU_TITLE_BAR:"",
+    REACT_UI_TOOLTIP:"",
+    REACT_UI_COLLAPSE_VIEW:"",
+    REACT_UI_COLLAPSE_VIEW_TITLE_BAR:"",
+    REACT_UI_COLLAPSE_VIEW_DROPDOWN:"",
+    REACT_UI_TOAST:"",
+    REACT_UI_ORDERED_LIST:"",
+    REACT_UI_UNORDERED_LIST:"",
+    REACT_UI_LIST_ITEM:"",
+    REACT_UI_TABLE:"",
+    REACT_UI_TABLE_HEADING:"",
+    REACT_UI_TABLE_FOOTER:"",
+    REACT_UI_TABLE_ROW:"",
+    REACT_UI_TABLE_DATA:"",
+    REACT_UI_TABLE_HEADER:"",
+    REACT_UI_CAPTION:"",
+    REACT_UI_EMBED:"",
+    REACT_UI_IFRAME:"",
+    REACT_UI_LAYOUT:"",
+    REACT_UI_VERTICAL_LAYOUT:"",
+    REACT_UI_HORIZONTAL_LAYOUT:"",
+    REACT_UI_FLOW_LAYOUT:"",
+    REACT_UI_GRID_LAYOUT:"",
+    REACT_UI_RELATIVE_LAYOUT:"",
+    REACT_UI_SCROLL_WINDOW:"",
+    REACT_UI_SCROLL_WINDOW_VERTICAL:"",
+    REACT_UI_SCROLL_WINDOW_HORIZONTAL:"",
+    REACT_UI_NAVIGATION_BAR:"",
+    REACT_UI_NAVIGATION_BAR_NAVIGATION_DRAWER:"",
+    REACT_UI_NAVIGATION_BAR_NAVIGATION_DRAWER_CONTENT:"",
+    REACT_UI_NAVIGATION_BAR_NAVIGATION_MENU:"",
+    REACT_UI_NAVIGATION_BAR_NAVIGATION_MENU_CONTENT:"",
+    REACT_UI_FOOTER_BAR:"",
+    REACT_UI_ACTIVITY:""
+}
+
 const _r_cel_ = React.createElement,
     _r_cls_ = React.createClass,
     _r_rnd_ = ReactDOM.render,
@@ -251,6 +356,21 @@ const _linear_gradient_directions_ = {
     BOTTOM_LEFT: "to bottom left",
     BOTTOM_RIGHT: "to bottom right"
 }
+
+Object.keys(CLS).map((key)=>{
+    let replace=(string="",x="",y="")=>{
+        let newString=string;
+        while(true){
+            if(newString.includes(x)){
+                newString=newString.replace(x,y);
+            }else{
+                break
+            }
+        }
+        return newString;
+    }
+    CLS[key]="-"+replace(key,"_","-").toLowerCase()+"-";
+});
 
 function _linear_gradient_(direction = _linear_gradient_directions_.RIGHT, ...colors) {
     return "linear-gradient(" + direction + "," + colors.join(",") + ")"
@@ -345,15 +465,15 @@ function _toggle_classes_(element = document.body, first_class, second_class) {
 }
 
 function _toggle_visibility_(element) {
-    return element.classList.toggle("-react-ui-hidden-");
+    return element.classList.toggle(CLS.REACT_UI_HIDDEN);
 }
 
 function _hide_element_(element) {
-    element.classList.add("-react-ui-hidden-")
+    element.classList.add(CLS.REACT_UI_HIDDEN)
 }
 
 function _show_element_(element) {
-    element.classList.remove("-react-ui-hidden-")
+    element.classList.remove(CLS.REACT_UI_HIDDEN)
 }
 
 function _load_custom_props_(default_props = {}, props = {}) {
@@ -382,7 +502,7 @@ function _label_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-label-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_LABEL);
     return _r_cel_("span", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -390,7 +510,7 @@ function _paragraph_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-paragraph-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_PARAGRAPH);
     return _r_cel_("p", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -398,7 +518,7 @@ function _icon_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-icon-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_ICON);
     return _r_cel_("i", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -406,7 +526,7 @@ function _heading_1_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-heading-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_HEADING);
     return _r_cel_("h1", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -414,7 +534,7 @@ function _heading_2_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-heading-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_HEADING);
     return _r_cel_("h2", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -422,7 +542,7 @@ function _heading_3_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-heading-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_HEADING);
     return _r_cel_("h3", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -430,7 +550,7 @@ function _heading_4_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-heading-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_HEADING);
     return _r_cel_("h4", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -438,7 +558,7 @@ function _heading_5_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-heading-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_HEADING);
     return _r_cel_("h5", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -446,7 +566,7 @@ function _heading_6_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-heading-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_HEADING);
     return _r_cel_("h6", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -454,7 +574,7 @@ function _button_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-button-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_BUTTON);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -462,7 +582,7 @@ function _link_(props = {}) {
     let properties = _load_custom_props_({
         href: "#"
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-link-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_LINK);
     return _r_cel_("a", Object.assign(properties, { key: _get_random_string_() }), properties.component || properties.text);
 }
 
@@ -470,7 +590,7 @@ function _text_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "text"
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-text-input-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_TEXT_INPUT);
     return _r_cel_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -478,7 +598,7 @@ function _file_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "file"
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-file-input-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_FILE_INPUT);
     return _r_cel_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -486,7 +606,7 @@ function _password_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "password"
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-password-input-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_PASSWORD_INPUT);
     return _r_cel_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -494,7 +614,7 @@ function _number_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "number"
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-number-input-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_NUMBER_INPUT);
     return _r_cel_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -502,7 +622,7 @@ function _color_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "color"
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-color-input-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_COLOR_INPUT);
     return _r_cel_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -510,7 +630,7 @@ function _date_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "date"
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-date-input-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_DATE_INPUT);
     return _r_cel_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -518,7 +638,7 @@ function _datetime_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "datetime"
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-datetime-input-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_DATETIME_INPUT);
     return _r_cel_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -526,7 +646,7 @@ function _month_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "month"
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-month-input-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_MONTH_INPUT);
     return _r_cel_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -534,7 +654,7 @@ function _week_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "week"
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-week-input-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_WEEK_INPUT);
     return _r_cel_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -542,13 +662,13 @@ function _time_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "time"
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-time-input-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_TIME_INPUT);
     return _r_cel_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
 function _text_area_(props = {}) {
     let properties = _load_custom_props_({}, props);
-    properties = _load_custom_class_(properties, "-react-ui-text-area-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_TEXT_AREA);
     return _r_cel_("textarea", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -557,7 +677,7 @@ function _switch_(props = {}) {
         onSwitched: () => { },
         id: _get_random_string_()
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-switch-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_SWITCH);
     let toggle_id = _get_random_string_(),
         get_toggle_element=()=>{
             return _element_loader_.fromId(toggle_id);
@@ -568,12 +688,12 @@ function _switch_(props = {}) {
         toggle_switch = (event) => {
             let toggle = get_toggle_element(),
                 switch_ = get_switch_element(),
-                current_class = _toggle_classes_(toggle, "-react-ui-switch-toggle-active-", "-react-ui-switch-toggle-inactive-"),
+                current_class = _toggle_classes_(toggle, CLS.REACT_UI_SWITCH_TOGGLE_ACTIVE, CLS.REACT_UI_SWITCH_TOGGLE_INACTIVE),
                 active = !current_class.includes("inactive");
             if (active) {
-                _replace_class_(switch_, "-react-ui-switch-", "-react-ui-switch-active-");
+                _replace_class_(switch_, CLS.REACT_UI_SWITCH, CLS.REACT_UI_SWITCH_ACTIVE);
             } else {
-                _replace_class_(switch_, "-react-ui-switch-active-", "-react-ui-switch-");
+                _replace_class_(switch_, CLS.REACT_UI_SWITCH_ACTIVE, CLS.REACT_UI_SWITCH);
             }
             properties.onSwitched(active);
         }
@@ -583,7 +703,7 @@ function _switch_(props = {}) {
             toggle_switch(event);
         }
     }), _r_cel_("div", {
-        className: "-react-ui-switch-toggle-inactive-",
+        className: CLS.REACT_UI_SWITCH_TOGGLE_INACTIVE,
         id: toggle_id
     }, null));
 }
@@ -592,7 +712,7 @@ function _image_view_(props = {}) {
     let properties = _load_custom_props_({
         src: "#"
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-image-view-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_IMAGE_VIEW);
     return _r_cel_("img", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -600,7 +720,7 @@ function _video_view_(props = {}) {
     let properties = _load_custom_props_({
         controls: true
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-video-view-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_VIDEO_VIEW);
     return _r_cel_("video", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -608,19 +728,19 @@ function _audio_view_(props = {}) {
     let properties = _load_custom_props_({
         controls: true
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-audio-view-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_AUDIO_VIEW);
     return _r_cel_("audio", Object.assign(properties, { key: _get_random_string_() }));
 }
 
 function _progress_bar_(props = {}) {
     let properties = _load_custom_props_({}, props);
-    properties = _load_custom_class_(properties, "-react-ui-progress-bar-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_PROGRESS_BAR);
     return _r_cel_("progress", Object.assign(properties, { key: _get_random_string_() }));
 }
 
 function _progress_indicator_(props = {}) {
     let properties = _load_custom_props_({}, props);
-    properties = _load_custom_class_(properties, "-react-ui-progress-indicator-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_PROGRESS_INDICATOR);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -628,7 +748,7 @@ function _selection_view_(props = {}) {
     let properties = _load_custom_props_({
         optionItems: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-selection-view-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_SELECTION_VIEW);
     return _r_cel_("select", Object.assign(properties, { key: _get_random_string_() }), ...properties.optionItems);
 }
 
@@ -636,7 +756,7 @@ function _option_item_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-option-item-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_OPTION_ITEM);
     return _r_cel_("option", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -644,7 +764,7 @@ function _slider_(props = {}) {
     let properties = _load_custom_props_({
         type: "range"
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-slider-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_SLIDER);
     return _r_cel_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -652,9 +772,9 @@ function _check_button_(props = {}) {
     let properties = _load_custom_props_({
         type: "checkbox",
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-check-button-check-box-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_CHECK_BUTTON_CHECK_BOX);
     return _r_cel_("div", {
-        className: "-react-ui-check-button-",
+        className: CLS.REACT_UI_CHECK_BUTTON,
         key: _get_random_string_(),
         style: properties.style
     },
@@ -1083,8 +1203,12 @@ function _navigation_bar_(props = {}) {
     }, props);
     properties = _load_custom_class_(properties, "-react-ui-navigation-bar-");
     let drawer_id = _get_random_string_(),
+        drawer_content_id=_get_random_string_(),
         menu_id = _get_random_string_(),
         get_drawer_element = () => {
+            return _element_loader_.fromId(drawer_id);
+        },
+        get_drawer_content_element = () => {
             return _element_loader_.fromId(drawer_id);
         },
         get_menu_element = () => {
@@ -1116,6 +1240,7 @@ function _navigation_bar_(props = {}) {
         }
     }, _r_cel_("div", {
         className: "-react-ui-navigation-bar-navigation-drawer-content-",
+        id:drawer_content_id,
             onClick: (event) => {
                 event.stopPropagation();
             }
@@ -1142,7 +1267,7 @@ function _navigation_bar_(props = {}) {
             }
         }, properties.drawerButton) : _button_({
             text: "| | |",
-            style: _btn_stl_.L,
+            style: _button_styles_.L,
             onClick: (event) => {
                 event.stopPropagation();
                 toggle_drawer(event);
@@ -1157,7 +1282,7 @@ function _navigation_bar_(props = {}) {
             }
         }, properties.menuButton) : _button_({
             text: "| | |",
-            style: _btn_stl_.L,
+            style: _button_styles_.L,
             onClick: (event) => {
                 event.stopPropagation();
                 toggle_menu(event);
@@ -1676,11 +1801,11 @@ const ReactUi = {
     LinearGradient: _linear_gradient_,
     RadialGradient: _radial_gradient_,
     LinearGradientDirections: _linear_gradient_directions_,
-    CustomColors: _cst_cls_,
-    Events: _evs_,
-    IconStyles: _icn_stl_,
-    ImageStyles: _img_stl_,
-    ButtonStyles: _btn_stl_,
+    CustomColors: _custom_colors_,
+    Events: _events_,
+    IconStyles: _icon_styles_,
+    ImageStyles: _image_styles_,
+    ButtonStyles: _button_styles_,
     CreateClass: _r_cls_,
     CreateElement: _r_cel_,
     Render: _r_rnd_,
