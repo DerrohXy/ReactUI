@@ -4,7 +4,7 @@ const {
     HorizontalLayout,HorizontalScrollWindow,Icon,ImageStyles,IconStyles,Iframe,Initialize,ImageView,Label,Layout,Link,ListItem,LinearGradient,LinearGradientDirections,
     Menu,MenuBar,MenuItem,MonthInput,NavigationBar,NumberInput,OptionItem,OrderedList,PasswordInput,ProgressBar,Paragraph,ProgressIndicator,RadioButton,RadioGroup,RadialGradient,RelativeLayout,Render,
     ScrollWindow,SelectionView,Switch,Slider,ShowConfirmDialog,ShowDialog,ShowInputDialog,ShowMessageDialog,ShowToast,ShowTooltip,Store,TabbedView,TabbedWindow,Table,TableBody,
-    TableData,TableFooter,TableHeader,TableHeading,TableRow,TextArea,TextInput,TimeInput,UnorderedList,VerticalLayout,VideoView,VerticalScrollWindow,WeekInput
+    TableData,TableFooter,TableHeader,TableHeading,TableRow,TextArea,TextInput,TimeInput,UnorderedList,VerticalLayout,VideoView,VerticalScrollWindow,WeekInput,EnableAnimations,DisableAnimations
 } = ReactUi;
 
 function WidthFiller(){
@@ -405,6 +405,7 @@ function showDialogExample() {
 
 window.onload = () => {
     Initialize();
+    //DisableAnimations();
     createDisplay();
     ShowToast("Hello there user...");
     showDialogExample();

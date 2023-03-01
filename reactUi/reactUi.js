@@ -234,17 +234,37 @@ const _events_ = {
         RASPBERRY: "#8A307F",
     };
 
-const CLS={
+const ACS={
     REACT_UI_PULSATING:"",
     REACT_UI_SPINNING:"",
     REACT_UI_SLIDE_IN_LEFT:"",
+    REACT_UI_SLIDE_IN_LEFT_SLOW:"",
+    REACT_UI_SLIDE_IN_LEFT_FAST:"",
     REACT_UI_SLIDE_OUT_LEFT:"",
+    REACT_UI_SLIDE_OUT_LEFT_SLOW:"",
+    REACT_UI_SLIDE_OUT_LEFT_FAST:"",
     REACT_UI_SLIDE_IN_RIGHT:"",
+    REACT_UI_SLIDE_IN_RIGHT_SLOW:"",
+    REACT_UI_SLIDE_IN_RIGHT_FAST:"",
     REACT_UI_SLIDE_OUT_RIGHT:"",
+    REACT_UI_SLIDE_OUT_RIGHT_SLOW:"",
+    REACT_UI_SLIDE_OUT_RIGHT_FAST:"",
     REACT_UI_SLIDE_IN_TOP:"",
+    REACT_UI_SLIDE_IN_TOP_SLOW:"",
+    REACT_UI_SLIDE_IN_TOP_FAST:"",
     REACT_UI_SLIDE_OUT_TOP:"",
+    REACT_UI_SLIDE_OUT_TOP_FAST:"",
+    REACT_UI_SLIDE_OUT_TOP_SLOW:"",
     REACT_UI_SLIDE_IN_BOTTOM:"",
+    REACT_UI_SLIDE_IN_BOTTOM_SLOW:"",
+    REACT_UI_SLIDE_IN_BOTTOM_FAST:"",
     REACT_UI_SLIDE_OUT_BOTTOM:"",
+    REACT_UI_SLIDE_OUT_BOTTOM_SLOW:"",
+    REACT_UI_SLIDE_OUT_BOTTOM_FAST:"",
+}
+
+const CLS={
+    ...ACS,
     REACT_UI_HIDDEN:"",
     REACT_UI_BUTTON:"",
     REACT_UI_LABEL:"",
@@ -276,6 +296,7 @@ const CLS={
     REACT_UI_CHECK_BUTTON_CHECK_BOX:"",
     REACT_UI_RADIO_BUTTON:"",
     REACT_UI_RADIO_BUTTON_CHECK_BOX:"",
+    REACT_UI_RADIO_GROUP:"",
     REACT_UI_SWITCH:"",
     REACT_UI_SWITCH_ACTIVE:"",
     REACT_UI_SWITCH_FILLER:"",
@@ -283,6 +304,7 @@ const CLS={
     REACT_UI_SWITCH_TOGGLE_INACTIVE:"",
     REACT_UI_DIALOG:"",
     REACT_UI_DIALOG_WINDOW:"",
+    REACT_UI_DIALOG_TITLE_BAR:"",
     REACT_UI_MENU:"",
     REACT_UI_MENU_ACTIVE:"",
     REACT_UI_MENU_DROPDOWN:"",
@@ -302,6 +324,7 @@ const CLS={
     REACT_UI_TABBED_WINDOW_TITLE_BAR_RIGHT:"",
     REACT_UI_TAB_ACTIVE:"",
     REACT_UI_TAB_INACTIVE:"",
+    REACT_UI_CANVAS:"",
     REACT_UI_CONTEXT_MENU:"",
     REACT_UI_CONTEXT_MENU_TITLE_BAR:"",
     REACT_UI_TOOLTIP:"",
@@ -315,6 +338,7 @@ const CLS={
     REACT_UI_TABLE:"",
     REACT_UI_TABLE_HEADING:"",
     REACT_UI_TABLE_FOOTER:"",
+    REACT_UI_TABLE_BODY:"",
     REACT_UI_TABLE_ROW:"",
     REACT_UI_TABLE_DATA:"",
     REACT_UI_TABLE_HEADER:"",
@@ -357,20 +381,32 @@ const _linear_gradient_directions_ = {
     BOTTOM_RIGHT: "to bottom right"
 }
 
-Object.keys(CLS).map((key)=>{
-    let replace=(string="",x="",y="")=>{
-        let newString=string;
-        while(true){
-            if(newString.includes(x)){
-                newString=newString.replace(x,y);
-            }else{
-                break
+function _initialize_classes_(){
+    Object.keys(CLS).map((key)=>{
+        let replace=(string="",x="",y="")=>{
+            let newString=string;
+            while(true){
+                if(newString.includes(x)){
+                    newString=newString.replace(x,y);
+                }else{
+                    break
+                }
             }
+            return newString;
         }
-        return newString;
-    }
-    CLS[key]="-"+replace(key,"_","-").toLowerCase()+"-";
-});
+        CLS[key]="-"+replace(key,"_","-").toLowerCase()+"-";
+    });
+}
+
+function _disable_animations_(){
+    Object.keys(ACS).map((key)=>{
+        CLS[key]="_X_"
+    });
+}
+
+function _enable_animations_(){
+    _initialize_classes_();
+}
 
 function _linear_gradient_(direction = _linear_gradient_directions_.RIGHT, ...colors) {
     return "linear-gradient(" + direction + "," + colors.join(",") + ")"
@@ -447,14 +483,44 @@ function _get_element_dimensions_(element) {
 }
 
 function _replace_class_(element, previous_class, new_class) {
+    if(_is_null_(element)){
+        return
+    }
     element.classList.replace(previous_class, new_class);
 }
 
 function _toggle_class_(element, classname) {
+    if(_is_null_(element)){
+        return
+    }
     return element.classList.toggle(classname);
 }
 
+function _includes_class_(element,classname){
+    if(_is_null_(element)){
+        return
+    }
+    return element.classList.contains(classname);
+}
+
+function _add_class_(element,classname){
+    if(_is_null_(element)){
+        return
+    }
+    return element.classList.add(classname);
+}
+
+function _remove_class_(element,classname){
+    if(_is_null_(element)){
+        return
+    }
+    return element.classList.remove(classname);
+}
+
 function _toggle_classes_(element = document.body, first_class, second_class) {
+    if(_is_null_(element)){
+        return
+    }
     if (element.classList.contains(first_class)) {
         element.classList.replace(first_class, second_class);
         return second_class;
@@ -465,14 +531,23 @@ function _toggle_classes_(element = document.body, first_class, second_class) {
 }
 
 function _toggle_visibility_(element) {
+    if(_is_null_(element)){
+        return
+    }
     return element.classList.toggle(CLS.REACT_UI_HIDDEN);
 }
 
 function _hide_element_(element) {
+    if(_is_null_(element)){
+        return
+    }
     element.classList.add(CLS.REACT_UI_HIDDEN)
 }
 
 function _show_element_(element) {
+    if(_is_null_(element)){
+        return
+    }
     element.classList.remove(CLS.REACT_UI_HIDDEN)
 }
 
@@ -786,9 +861,9 @@ function _radio_button_(props = {}) {
     let properties = _load_custom_props_({
         type: "radio",
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-radio-button-check-box-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_RADIO_BUTTON_CHECK_BOX);
     return _r_cel_("div", {
-        className: "-react-ui-radio-button-",
+        className: CLS.REACT_UI_RADIO_BUTTON,
         key: _get_random_string_(),
         style: properties.style
     },
@@ -800,7 +875,7 @@ function _radio_group_(props = {}) {
     let properties = _load_custom_props_({
         radioButtons: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-radio-group-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_RADIO_GROUP);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.radioButtons.map((button) => {
         return _radio_button_(button);
     }));
@@ -810,7 +885,7 @@ function _menu_item_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-menu-item-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_MENU_ITEM);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), properties.component || properties.text);
 }
 
@@ -820,7 +895,7 @@ function _menu_(props = {}) {
         text: "",
         id: _get_random_string_(),
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-menu-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_MENU);
     let dropdown_id = _get_random_string_(),
         get_menu_element=()=>{
             return _element_loader_.fromId(properties.id);
@@ -833,16 +908,16 @@ function _menu_(props = {}) {
                 dropdown = get_dropdown_element(),
                 hidden = _toggle_visibility_(dropdown);
             if (hidden === true) {
-                _replace_class_(menu, "-react-ui-menu-active-", "-react-ui-menu-");
+                _replace_class_(menu, CLS.REACT_UI_MENU_ACTIVE, CLS.REACT_UI_MENU);
             } else {
-                _replace_class_(menu, "-react-ui-menu-", "-react-ui-menu-active-");
+                _replace_class_(menu, CLS.REACT_UI_MENU, CLS.REACT_UI_MENU_ACTIVE);
             }
         },
         close_menu = (event) => {
             let menu = get_menu_element(),
                 dropdown = get_dropdown_element();
             _hide_element_(dropdown);
-            _replace_class_(menu, "-react-ui-menu-active-", "-react-ui-menu-");
+            _replace_class_(menu, CLS.REACT_UI_MENU_ACTIVE, CLS.REACT_UI_MENU);
         },
         dropdown_content = properties.menuComponent ? [properties.menuComponent] : properties.menuItems;
     window.addEventListener(_WINDOW_CLICK_EVENT_, (event) => {
@@ -860,7 +935,7 @@ function _menu_(props = {}) {
     }),
         properties.component || properties.text,
         _r_cel_("div", {
-            className: "-react-ui-menu-dropdown- -react-ui-hidden-",
+            className: [CLS.REACT_UI_MENU_DROPDOWN,CLS.REACT_UI_HIDDEN].join(" "),
             id: dropdown_id
         }, ...dropdown_content));
 }
@@ -869,7 +944,7 @@ function _menu_bar_(props = {}) {
     let properties = _load_custom_props_({
         menus: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-menu-bar-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_MENU_BAR);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.menus);
 }
 
@@ -877,7 +952,7 @@ function _tabbed_window_(props = {}) {
     let properties = _load_custom_props_({
         tabs: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-tabbed-window-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_TABBED_WINDOW);
     let title_bar_id = _get_random_string_(),
         content_area_id = _get_random_string_(),
         get_title_bar_element=()=>{
@@ -892,9 +967,9 @@ function _tabbed_window_(props = {}) {
             for (let x = 0; x < title_bar.childElementCount; ++x) {
                 let child = title_bar.children.item(x);
                 if (index === x) {
-                    _replace_class_(child, "-react-ui-tab-inactive-", "-react-ui-tab-active-");
+                    _replace_class_(child, CLS.REACT_UI_TAB_INACTIVE, CLS.REACT_UI_TAB_ACTIVE);
                 } else {
-                    _replace_class_(child, "-react-ui-tab-active-", "-react-ui-tab-inactive-");
+                    _replace_class_(child, CLS.REACT_UI_TAB_ACTIVE, CLS.REACT_UI_TAB_INACTIVE);
                 }
             }
             for (let x = 0; x < content_area.childElementCount; ++x) {
@@ -908,22 +983,22 @@ function _tabbed_window_(props = {}) {
         }
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }),
         _r_cel_("div", {
-            className: "-react-ui-tabbed-window-title-bar-",
+            className: CLS.REACT_UI_TABBED_WINDOW_TITLE_BAR,
             id: title_bar_id
         }, ...properties.tabs.map((tab, index) => {
             return _r_cel_("div", {
-                className: index === 0 ? "-react-ui-tab-active-" : "-react-ui-tab-inactive-",
+                className: index === 0 ? CLS.REACT_UI_TAB_ACTIVE : CLS.REACT_UI_TAB_INACTIVE,
                 onClick: (event) => {
                     set_tab_index(event, index)
                 }
             }, tab.title);
         })),
         _r_cel_("div", {
-            className: "-react-ui-tabbed-window-content-area-",
+            className: CLS.REACT_UI_TABBED_WINDOW_CONTENT_AREA,
             id: content_area_id
         }, ...properties.tabs.map((tab, index) => {
             return _r_cel_("div", {
-                className: index === 0 ? "" : "-react-ui-hidden-",
+                className: index === 0 ? "" : CLS.REACT_UI_HIDDEN,
             }, tab.component);
         })));
 }
@@ -932,7 +1007,7 @@ function _tabbed_view_(props = {}) {
     let properties = _load_custom_props_({
         tabs: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-tabbed-view-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_TABBED_VIEW);
     let title_bar_id = _get_random_string_(),
         content_area_id = _get_random_string_(),
         get_title_bar_element=()=>{
@@ -947,9 +1022,9 @@ function _tabbed_view_(props = {}) {
             for (let x = 0; x < title_bar.childElementCount; ++x) {
                 let child = title_bar.children.item(x);
                 if (index === x) {
-                    _replace_class_(child, "-react-ui-tab-inactive-", "-react-ui-tab-active-");
+                    _replace_class_(child, CLS.REACT_UI_TAB_INACTIVE, CLS.REACT_UI_TAB_ACTIVE);
                 } else {
-                    _replace_class_(child, "-react-ui-tab-active-", "-react-ui-tab-inactive-");
+                    _replace_class_(child, CLS.REACT_UI_TAB_ACTIVE, CLS.REACT_UI_TAB_INACTIVE);
                 }
             }
             for (let x = 0; x < content_area.childElementCount; ++x) {
@@ -963,13 +1038,13 @@ function _tabbed_view_(props = {}) {
         }
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }),
         _r_cel_("div", {
-            className: "-react-ui-tabbed-view-header-",
+            className: CLS.REACT_UI_TABBED_VIEW_HEADER,
         }, _r_cel_("div", {
-            className: "-react-ui-tabbed-view-title-bar-",
+            className: CLS.REACT_UI_TABBED_VIEW_TITLE_BAR,
             id: title_bar_id
         }, ...properties.tabs.map((tab, index) => {
             return _r_cel_("div", {
-                className: index === 0 ? "-react-ui-tab-active-" : "-react-ui-tab-inactive-",
+                className: index === 0 ? CLS.REACT_UI_TAB_ACTIVE : CLS.REACT_UI_TAB_INACTIVE,
                 style: {
                     borderLeft: index === 0 ? "1px solid transparent" : "1px solid lightgray"
                 },
@@ -979,18 +1054,18 @@ function _tabbed_view_(props = {}) {
             }, tab.title);
         }))),
         _r_cel_("div", {
-            className: "-react-ui-tabbed-view-content-area-",
+            className: CLS.REACT_UI_TABBED_VIEW_CONTENT_AREA,
             id: content_area_id
         }, ...properties.tabs.map((tab, index) => {
             return _r_cel_("div", {
-                className: index === 0 ? "" : "-react-ui-hidden-",
+                className: index === 0 ? "" : CLS.REACT_UI_HIDDEN,
             }, tab.component);
         })));
 }
 
 function _canvas_(props = {}) {
     let properties = _load_custom_props_({}, props);
-    properties = _load_custom_class_(properties, "-react-ui-canvas-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_CANVAS);
     return _r_cel_("canvas", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -998,7 +1073,7 @@ function _ordered_list_(props = {}) {
     let properties = _load_custom_props_({
         listItems: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-ordered-list-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_ORDERED_LIST);
     return _r_cel_("ol", Object.assign(properties, { key: _get_random_string_() }), ...properties.listItems);
 }
 
@@ -1006,7 +1081,7 @@ function _unordered_list_(props = {}) {
     let properties = _load_custom_props_({
         listItems: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-unordered-list-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_UNORDERED_LIST);
     return _r_cel_("ul", Object.assign(properties, { key: _get_random_string_() }), ...properties.listItems);
 }
 
@@ -1014,7 +1089,7 @@ function _list_item_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-list-item-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_LIST_ITEM);
     return _r_cel_("li", Object.assign(properties, { key: _get_random_string_() }), properties.component || properties.text);
 }
 
@@ -1022,7 +1097,7 @@ function _table_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-table-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_TABLE);
     return _r_cel_("table", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1030,7 +1105,7 @@ function _table_heading_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-table-heading-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_TABLE_HEADING);
     return _r_cel_("thead", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1038,7 +1113,7 @@ function _table_footer_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-table-footer-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_TABLE_FOOTER);
     return _r_cel_("tfoot", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1046,7 +1121,7 @@ function _table_body_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-table-body-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_TABLE_BODY);
     return _r_cel_("tbody", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1054,7 +1129,7 @@ function _table_row_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-table-row-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_TABLE_ROW);
     return _r_cel_("tr", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1062,7 +1137,7 @@ function _table_header_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-table-header-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_TABLE_HEADER);
     return _r_cel_("th", Object.assign(properties, { key: _get_random_string_() }), properties.component || properties.text);
 }
 
@@ -1070,7 +1145,7 @@ function _table_data_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-table-data-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_TABLE_DATA);
     return _r_cel_("td", Object.assign(properties, { key: _get_random_string_() }), properties.component || properties.text);
 }
 
@@ -1078,19 +1153,19 @@ function _caption_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-caption-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_CAPTION);
     return _r_cel_("caption", Object.assign(properties, { key: _get_random_string_() }), properties.component || properties.text);
 }
 
 function _embed_(props = {}) {
     let properties = _load_custom_props_({}, props);
-    properties = _load_custom_class_(properties, "-react-ui-embed-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_EMBED);
     return _r_cel_("embed", Object.assign(properties, { key: _get_random_string_() }));
 }
 
 function _iframe_(props = {}) {
     let properties = _load_custom_props_({}, props);
-    properties = _load_custom_class_(properties, "-react-ui-iframe-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_IFRAME);
     return _r_cel_("iframe", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -1098,7 +1173,7 @@ function _layout_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-layout-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_LAYOUT);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1106,7 +1181,7 @@ function _vertical_layout_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-vertical-layout-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_VERTICAL_LAYOUT);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1114,7 +1189,7 @@ function _horizontal_layout_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-horizontal-layout-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_HORIZONTAL_LAYOUT);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1122,7 +1197,7 @@ function _relative_layout_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-relative-layout-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_RELATIVE_LAYOUT);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1130,7 +1205,7 @@ function _grid_layout_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-grid-layout-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_GRID_LAYOUT);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1138,7 +1213,7 @@ function _flow_layout_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-flow-layout-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_FLOW_LAYOUT);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1146,7 +1221,7 @@ function _scroll_window_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-scroll-window-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_SCROLL_WINDOW);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1154,7 +1229,7 @@ function _horizontal_scroll_window_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-scroll-window-horizontal-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_SCROLL_WINDOW_HORIZONTAL);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1162,7 +1237,7 @@ function _vertical_scroll_window_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-scroll-window-vertical-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_SCROLL_WINDOW_VERTICAL);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1171,7 +1246,7 @@ function _collapse_view_(props = {}) {
         title:"",
         component: null
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-collapse-view-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_COLLAPSE_VIEW);
     let dropdown_id = _get_random_string_(),
         get_dropdown_element=()=>{
             return _element_loader_.fromId(dropdown_id);
@@ -1182,13 +1257,13 @@ function _collapse_view_(props = {}) {
         }
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }),
         _r_cel_("div", {
-            className: "-react-ui-collapse-view-title-bar-",
+            className: CLS.REACT_UI_COLLAPSE_VIEW_TITLE_BAR,
             onClick: (event) => {
                 toggle_component(event);
             }
         }, properties.title),
         _r_cel_("div", {
-            className: "-react-ui-collapse-view-dropdown-  -react-ui-hidden-",
+            className: [CLS.REACT_UI_COLLAPSE_VIEW_DROPDOWN,CLS.REACT_UI_HIDDEN].join(" "),
             id: dropdown_id
         }, properties.component));
 }
@@ -1201,37 +1276,65 @@ function _navigation_bar_(props = {}) {
         menuButton: null,
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-navigation-bar-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_NAVIGATION_BAR);
     let drawer_id = _get_random_string_(),
         drawer_content_id=_get_random_string_(),
         menu_id = _get_random_string_(),
+        menu_content_id=_get_random_string_(),
         get_drawer_element = () => {
             return _element_loader_.fromId(drawer_id);
         },
         get_drawer_content_element = () => {
-            return _element_loader_.fromId(drawer_id);
+            return _element_loader_.fromId(drawer_content_id);
         },
         get_menu_element = () => {
             return _element_loader_.fromId(menu_id);
         },
-        toggle_drawer = (event) => {
-            let drawer = get_drawer_element(),
-                hidden = _toggle_visibility_(drawer);
+        get_menu_content_element = () => {
+            return _element_loader_.fromId(menu_content_id);
         },
-        toggle_menu = (event) => {
+        open_menu = (event) => {
             let menu = get_menu_element(),
-                hidden = _toggle_visibility_(menu);
+                content=get_menu_content_element();
+            _show_element_(menu);
+            _add_class_(content,CLS.REACT_UI_SLIDE_IN_RIGHT_FAST)
+        },
+        open_drawer = (event) => {
+            let drawer = get_drawer_element(),
+                content=get_drawer_content_element();
+            _show_element_(drawer);
+            _add_class_(content,CLS.REACT_UI_SLIDE_IN_LEFT_FAST);
         },
         close_menu = (event) => {
-            let menu = get_menu_element();
+            let menu = get_menu_element(),
+                content=get_menu_content_element();
+            _remove_class_(content,CLS.REACT_UI_SLIDE_IN_RIGHT_FAST)
             _hide_element_(menu);
         },
         close_drawer = (event) => {
-            let drawer = get_drawer_element();
+            let drawer = get_drawer_element(),
+                content=get_drawer_content_element();
+            _remove_class_(content,CLS.REACT_UI_SLIDE_IN_LEFT_FAST)
             _hide_element_(drawer);
+        },
+        toggle_drawer = (event) => {
+            let drawer = get_drawer_element();
+            if(_includes_class_(drawer,CLS.REACT_UI_HIDDEN)){
+                open_drawer(event);
+            }else{
+                close_drawer(event);
+            }
+        },
+        toggle_menu = (event) => {
+            let menu = get_menu_element();
+            if(_includes_class_(menu,CLS.REACT_UI_HIDDEN)){
+                open_menu(event);
+            }else{
+                close_menu(event);
+            }
         };
     let drawer = properties.navigationDrawer === null ? null : _r_cel_("div", {
-        className: "-react-ui-navigation-bar-navigation-drawer- -react-ui-hidden-",
+        className: [CLS.REACT_UI_NAVIGATION_BAR_NAVIGATION_DRAWER,CLS.REACT_UI_HIDDEN].join(" "),
         id: drawer_id,
         onClick: (event) => {
             event.stopPropagation();
@@ -1239,14 +1342,14 @@ function _navigation_bar_(props = {}) {
             close_menu(event);
         }
     }, _r_cel_("div", {
-        className: "-react-ui-navigation-bar-navigation-drawer-content-",
+        className: CLS.REACT_UI_NAVIGATION_BAR_NAVIGATION_DRAWER_CONTENT,
         id:drawer_content_id,
             onClick: (event) => {
                 event.stopPropagation();
             }
     }, properties.navigationDrawer)),
         menu = properties.menuDrawer === null ? null : _r_cel_("div", {
-            className: "-react-ui-navigation-bar-navigation-menu- -react-ui-hidden-",
+            className: [CLS.REACT_UI_NAVIGATION_BAR_NAVIGATION_MENU,CLS.REACT_UI_HIDDEN].join(" "),
             id: menu_id,
             onClick: (event) => {
                 event.stopPropagation();
@@ -1254,7 +1357,8 @@ function _navigation_bar_(props = {}) {
                 close_menu(event);
             }
         }, _r_cel_("div", {
-            className: "-react-ui-navigation-bar-navigation-menu-content-",
+            className: CLS.REACT_UI_NAVIGATION_BAR_NAVIGATION_MENU_CONTENT,
+            id:menu_content_id,
             onClick: (event) => {
                 event.stopPropagation();
             }
@@ -1308,7 +1412,7 @@ function _footer_bar_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-footer-bar-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_FOOTER_BAR);
     return _r_cel_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1318,7 +1422,7 @@ function _activity_(props = {}) {
         navigationBar: null,
         footerBar: null
     }, props);
-    properties = _load_custom_class_(properties, "-react-ui-activity-");
+    properties = _load_custom_class_(properties, CLS.REACT_UI_ACTIVITY);
     properties = _load_custom_style_(properties, {
         paddingTop: properties.navigationBar === null ? "0px" : "50px",
         paddingBottom: properties.footerBar === null ? "0px" : "50px"
@@ -1399,7 +1503,8 @@ function _show_dialog_(props = {}) {
         component: null,
         icon: "",
         title: "Dialog",
-        splash: false
+        splash: false,
+        animate:true
     }, props);
     let base_element = document.createElement("div"),
         dialog_id = _get_random_string_(),
@@ -1407,13 +1512,13 @@ function _show_dialog_(props = {}) {
             _close_dialog_(dialog_id);
         };
     let component = _r_cel_("div", {
-        className: "-react-ui-dialog-window-",
+        className: CLS.REACT_UI_DIALOG_WINDOW,
         onClick: (event) => {
             event.stopPropagation();
             close_dialog(event);
         },
     }, _r_cel_("div", {
-        className: "-react-ui-dialog-",
+        className: [CLS.REACT_UI_DIALOG,properties.animate===true?CLS.REACT_UI_SLIDE_IN_BOTTOM_FAST:""].join(" "),
         onClick: (event) => {
             event.stopPropagation();
         },
@@ -1421,7 +1526,7 @@ function _show_dialog_(props = {}) {
             backgroundColor: "white"
         }
     }, properties.splash === true ? null : _r_cel_("div", {
-        className: "-react-ui-dialog-title-bar-"
+        className: CLS.REACT_UI_DIALOG_TITLE_BAR
     }, properties.icon, properties.title, _button_({
         style: {
             borderRadius: "100%",
@@ -1697,6 +1802,7 @@ function _close_drawers_(){
 }
 
 function _initialize_() {
+    _initialize_classes_();
     window.addEventListener("click", (event_) => {
         window.dispatchEvent(new CustomEvent(_WINDOW_CLICK_EVENT_, {
             event: event_
@@ -1717,6 +1823,8 @@ function _initialize_() {
 
 const ReactUi = {
     Initialize: _initialize_,
+    DisableAnimations:_disable_animations_,
+    EnableAnimations:_enable_animations_,
     Label: _label_,
     Paragraph: _paragraph_,
     Icon: _icon_,
