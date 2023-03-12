@@ -7125,7 +7125,7 @@ ReactDOMComponent.Mixin = {
       case 'head':
       case 'body':
         /**
-         * ReactUi like <html> <head> and <body> can't be removed or added
+         * ReactUI like <html> <head> and <body> can't be removed or added
          * easily in a cross-browser way, however it's valuable to be able to
          * take advantage of React's reconciliation for styling and <title>
          * management. So we just document it and throw in dangerous cases.
@@ -16608,7 +16608,7 @@ function instantiateReactComponent(node) {
   }
 
   if ("development" !== 'production') {
-    "development" !== 'production' ? warning(typeof instance.construct === 'function' && typeof instance.mountComponent === 'function' && typeof instance.receiveComponent === 'function' && typeof instance.unmountComponent === 'function', 'Only React ReactUi can be mounted.') : undefined;
+    "development" !== 'production' ? warning(typeof instance.construct === 'function' && typeof instance.mountComponent === 'function' && typeof instance.receiveComponent === 'function' && typeof instance.unmountComponent === 'function', 'Only React ReactUI can be mounted.') : undefined;
   }
 
   // Sets up the instance. This can probably just move into the constructor now.
